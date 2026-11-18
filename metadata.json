@@ -1,0 +1,6 @@
+{
+  "name": "Music Guard AI",
+  "description": "Pre-publish music identification, license evidence log, and creator rights report companion.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

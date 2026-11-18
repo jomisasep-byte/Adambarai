@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Music Guard AI</string>
+    <string name="app_brand_display">MUSIC GUARD AI</string>
+    <string name="app_tagline">Know the music. Check the rights.</string>
+    <string name="app_subtitle_id">Kenali musik, periksa izin, dan dokumentasikan hasil sebelum publikasi.</string>
+
+    <!-- Navigation -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_scan">Scan</string>
+    <string name="nav_history">History</string>
+    <string name="nav_reports">Reports</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Disclaimers -->
+    <string name="disclaimer_title">Batasan Pemeriksaan Hak Cipta</string>
+    <string name="disclaimer_short">Bukan YouTube Content ID. Pengenalan musik dan catatan lisensi tidak menjamin video bebas klaim, blokir, atau demonetisasi. Selalu cek lisensi asli &amp; YouTube Studio Checks.</string>
+    <string name="disclaimer_full">MUSIC GUARD AI adalah alat bantu pra-publikasi untuk kreator. Aplikasi ini bukan YouTube Content ID dan bukan sistem resmi pemeriksaan copyright YouTube. Hasil pengenalan lagu hanya mengidentifikasi kandidat dari sampel audio yang diuji, bukan bukti hak penggunaan. Tidak ditemukannya kecocokan (No Match) tidak berarti audio bebas hak cipta. Selalu verifikasi dokumen lisensi resmi dan lakukan pemeriksaan di YouTube Studio Checks.</string>
+
+    <!-- Provider status -->
+    <string name="provider_not_configured">Belum Dikonfigurasi</string>
+    <string name="provider_ready">Siap (Proxy Terhubung)</string>
+    <string name="provider_audd_planned">AudD (Tahap 4 — Backend Proxy Diperlukan)</string>
+</resources>

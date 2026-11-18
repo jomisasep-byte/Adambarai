@@ -1,0 +1,187 @@
+PROMPT UTAMA — MUSIC GUARD AI (GOOGLE AI STUDIO ANDROID)
+
+CARA PAKAI:
+1. Buka Google AI Studio.
+2. Masuk Build mode.
+3. Pilih platform Android.
+4. Salin seluruh prompt di bawah dan kirim.
+5. Setelah fondasi selesai, gunakan prompt tahap 2–7 di file MD.
+
+==================== MULAI PROMPT ====================
+
+Bertindaklah sebagai Senior Android Engineer, Kotlin Developer, Jetpack Compose UI/UX Designer, Software Architect, dan QA Engineer.
+
+BANGUN APLIKASI ANDROID NATIVE BARU DARI NOL bernama MUSIC GUARD AI.
+
+PENTING:
+- Ini adalah proyek baru. Jangan mengimpor atau melanjutkan proyek lama.
+- Jangan membuat aplikasi web. Saya memilih platform Android.
+- Gunakan Kotlin dan Jetpack Compose sesuai kemampuan Google AI Studio Android Build mode.
+- Buat source code nyata yang dapat dibangun, bukan hanya desain mockup.
+- Jangan mengklaim fitur aktif jika belum diimplementasikan.
+- Jika ada integrasi yang membutuhkan token atau backend, buat arsitektur dan UI yang benar, lalu jelaskan konfigurasi yang masih diperlukan.
+- Jangan menaruh API secret pihak ketiga di APK.
+- Jangan membuat fitur untuk menghindari copyright detection.
+
+NAMA:
+MUSIC GUARD AI
+
+TAGLINE:
+Know the music. Check the rights.
+
+TUJUAN:
+Aplikasi membantu kreator YouTube melakukan pemeriksaan awal musik pada video/audio. Pengguna memilih media, aplikasi memeriksa metadata dan audio, menyiapkan sampel, mengenali kandidat lagu melalui API resmi yang dikonfigurasi, mencatat bukti lisensi, menyimpan riwayat, dan mengekspor laporan.
+
+BATASAN:
+Aplikasi ini bukan YouTube Content ID dan tidak menjamin bebas copyright, bebas klaim, atau lolos monetisasi. Pengenalan lagu tidak membuktikan lisensi. No-match bukan bukti bebas hak cipta. Selalu tampilkan disclaimer dan anjurkan verifikasi lisensi serta YouTube Studio Checks.
+
+DESAIN:
+Buat tampilan cyber futuristik yang premium, profesional, dan nyaman digunakan:
+- background midnight navy/hitam;
+- aksen cyan elektrik dan violet;
+- kartu gelap dengan border halus;
+- typography jelas;
+- icon konsisten;
+- animasi transisi dan loading yang ringan;
+- efek glow secukupnya;
+- layout responsif;
+- status selalu memiliki teks, bukan warna saja.
+Jangan membuat UI berlebihan atau sulit dibaca.
+
+NAVIGASI:
+1. Dashboard
+2. Scan
+3. History
+4. Reports
+5. Settings
+
+DASHBOARD:
+- branding MUSIC GUARD AI;
+- status layanan pengenalan;
+- tombol Scan Video;
+- tombol Scan Audio;
+- total pemeriksaan;
+- hasil yang perlu diverifikasi;
+- riwayat terbaru;
+- disclaimer ringkas.
+Jangan tampilkan angka statistik palsu.
+
+SCAN:
+- gunakan Android Storage Access Framework/document picker;
+- pengguna dapat memilih file video/audio;
+- tampilkan nama file, ukuran, tipe, dan durasi bila tersedia;
+- validasi file dan akses URI;
+- untuk video periksa keberadaan track audio;
+- jangan menganggap URI adalah path file;
+- jangan mengubah file asli;
+- sediakan progress, cancel, loading, error, dan retry.
+
+MEDIA PROCESSING:
+- gunakan Android media APIs yang kompatibel untuk membaca track audio video;
+- siapkan sampel audio sesuai spesifikasi provider;
+- untuk media panjang, gunakan segmentasi bila diperlukan;
+- simpan timestamp tiap segmen;
+- tampilkan bagian yang benar-benar diperiksa;
+- jangan mengklaim seluruh video diperiksa jika hanya sampel awal;
+- file sementara disimpan di cache privat dan dibersihkan setelah selesai/gagal/batal.
+
+MUSIC RECOGNITION:
+Provider awal yang direncanakan adalah AudD.
+Dokumentasi resmi: https://docs.audd.io/
+Endpoint yang tercatat: https://api.audd.io/
+
+Sebelum coding integrasi, periksa dokumentasi AudD terkini. Jangan menebak parameter, batas file, format, atau struktur JSON.
+Buat interface RecognitionProvider dan adapter AudD terpisah.
+Tangani:
+- match;
+- no match;
+- token belum dikonfigurasi;
+- token invalid;
+- rate limit/kuota;
+- timeout;
+- network error;
+- unsupported media;
+- malformed response;
+- server error.
+
+Jika token belum tersedia, jangan pura-pura API berjalan. Buat status konfigurasi yang jelas dan berikan petunjuk.
+Jangan menyimpan token provider pihak ketiga secara terbuka di APK. Gunakan backend HTTPS/secret manager yang sesuai. Jangan menganggap Firebase AI Logic untuk Gemini otomatis menggantikan API AudD.
+
+HASIL:
+Tampilkan kandidat lagu jika benar-benar dikembalikan API:
+- title;
+- artist;
+- album;
+- label;
+- external link;
+- timestamp segmen.
+Jangan mengarang metadata atau confidence.
+
+KATEGORI STATUS:
+- PERLU VERIFIKASI: kandidat lagu ditemukan, izin belum dibuktikan.
+- BELUM DIKETAHUI: no-match pada sampel atau data belum cukup.
+- PERLU PERHATIAN: data yang dimasukkan menunjukkan izin mungkin tidak tersedia/tidak sesuai.
+- PEMERIKSAAN GAGAL: proses/API gagal.
+Jangan menggunakan label 100% AMAN.
+Bukti lisensi hanya boleh dicatat atau ditinjau berdasarkan dokumen dan informasi pengguna.
+
+LICENSE EVIDENCE:
+Buat form untuk:
+- sumber musik;
+- jenis lisensi;
+- platform yang diizinkan;
+- monetisasi;
+- wilayah;
+- masa berlaku;
+- atribusi;
+- URL/dokumen bukti;
+- catatan.
+
+HISTORY:
+Gunakan database lokal yang persisten.
+Simpan ID, nama file, tipe, ukuran, durasi, waktu pemeriksaan, cakupan sampel, kandidat lagu, timestamp, status, dan error.
+Riwayat harus tetap ada setelah aplikasi ditutup.
+Sediakan detail, pencarian/filter sederhana, hapus item, dan hapus semua dengan konfirmasi.
+
+REPORTS:
+Sediakan ekspor Markdown (.md) dan JSON (.json) melalui Android Storage Access Framework atau share sheet.
+Laporan berisi waktu, file, cakupan pemeriksaan, kandidat lagu, timestamp, status, bukti lisensi yang dicatat, alasan, error, dan rekomendasi.
+Jangan tulis keberhasilan palsu.
+
+SETTINGS:
+- status API/provider;
+- petunjuk konfigurasi;
+- privasi;
+- tentang aplikasi;
+- versi aplikasi;
+- disclaimer.
+
+ARSITEKTUR:
+Gunakan single Activity dengan Jetpack Compose dan struktur package yang rapi sesuai batasan AI Studio.
+Pisahkan UI, ViewModel/state, repository, media processing, recognition provider, licensing, local storage, dan export secara wajar.
+Jangan membuat abstraksi berlebihan.
+Gunakan coroutine untuk pekerjaan asynchronous.
+Jangan memblokir main thread.
+
+PRIVASI:
+Minta persetujuan pengguna sebelum mengirim sampel ke layanan pihak ketiga.
+Jelaskan provider penerima sampel.
+Gunakan HTTPS.
+Jangan log token atau isi audio.
+Bersihkan cache sementara.
+Jangan upload media diam-diam.
+Jangan menyimpan file penuh tanpa alasan.
+
+URUTAN PENGERJAAN:
+Tahap 1: bangun fondasi aplikasi, theme, navigation, Dashboard, Scan, History, Reports, Settings. Gunakan data demo hanya jika diberi label DEMO.
+Tahap 2: implementasikan media picker dan validasi metadata.
+Tahap 3: implementasikan ekstraksi dan segmentasi audio.
+Tahap 4: implementasikan provider recognition dan backend/credential yang aman.
+Tahap 5: implementasikan pencatatan lisensi dan kategori hasil.
+Tahap 6: implementasikan database history dan ekspor laporan.
+Tahap 7: jalankan build dan test, perbaiki semua error.
+
+UNTUK SEKARANG:
+Mulai dengan Tahap 1. Buat proyek Android native baru yang lengkap dan konsisten, bukan hanya mockup. Pastikan semua navigasi berfungsi. Buat komponen UI reusable, theme terpusat, dan state yang jelas. Jangan membuat API palsu atau menyatakan scan sudah benar-benar berjalan. Setelah selesai, laporkan file utama yang dibuat, fitur yang aktif, fitur yang masih demo/belum dibuat, dan hasil build yang benar-benar diperiksa.
+
+===================== AKHIR PROMPT =====================
